@@ -35,16 +35,20 @@ def fuzzy_keywords(f):
 
     return inner
 
+def fuzzy_getattr(obj, k):
+    attrs = dir(obj)
+    mapped = _findClosestMatch(k, attrs)
+    assert mapped is not None
+
+    return getattr(obj, mapped)
+
+
 class FuzzyGetattr:
     def __init__(self, obj):
         self._obj = obj
 
     def __getattr__(self, k):
-        attrs = dir(self._obj)
-        mapped = _findClosestMatch(k, attrs)
-        assert mapped is not None
-
-        return getattr(self._obj, mapped)
+        return fuzzy_getattr(self._obj, k)
 
 class FuzzyModule:
     def __init__(self, m):
