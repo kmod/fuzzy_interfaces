@@ -9,6 +9,6 @@ env/package_stamp.txt: requirements.txt | env
 	env/bin/pip install -r requirements.txt
 	touch $@
 
-env/dl.stamp: env/package_stamp.txt
+env/dl.stamp: | env/package_stamp.txt
 	./env/bin/python -m spacy download en_core_web_md
 	touch $@
