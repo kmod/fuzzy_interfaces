@@ -21,7 +21,8 @@ if __name__ == "__main__":
 
     fuzzy_requests = FuzzyModule("requests")
 
-    print(fuzzy_requests.fetch(URL="http://example.com/").content)
+    print(fuzzy_requests.fetch(URL="http://example.com/"))
+    print(fuzzy_requests.fetch(link="http://example.com/"))
 
     driveVehicle(Car())
     driveVehicle(Bike())
