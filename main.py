@@ -7,6 +7,6 @@ def testFunction(title, data):
 if __name__ == "__main__":
     testFunction(Title="hello", content="world")
 
-    fuzzy_json = FuzzyModule("json")
+    fuzzy_requests = FuzzyModule("requests")
 
-    print(fuzzy_json.dumpss(object="hello world"))
+    print(fuzzy_requests.fetch(URL="http://example.com/").content)

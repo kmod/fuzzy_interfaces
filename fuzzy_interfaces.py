@@ -18,6 +18,7 @@ def _findClosestMatch(word, options):
             best_score = score
             best = option
 
+    print(word, "->", best)
     return best
 
 def fuzzy_keywords(f):
@@ -29,7 +30,6 @@ def fuzzy_keywords(f):
             mapped = _findClosestMatch(k, argnames)
             assert mapped not in mapped_kw, "duplicate keyword %r" % mapped
             assert mapped is not None
-            print(k, "->", mapped)
             mapped_kw[mapped] = v
         return f(*args, **mapped_kw)
 
